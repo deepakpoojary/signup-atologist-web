@@ -1,0 +1,64 @@
+@use '@/styles/variables' as *;
+
+.header {
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  background-color: $white;
+  // border-bottom: 1px solid $border-color;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.headerContainer {
+  max-width: 600px;
+  margin: 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 40px;
+    width: auto;
+
+    @media (max-width: $breakpoint-sm) {
+      height: 32px;
+    }
+  }
+}
+
+.headerAuth {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: $font-size-xs;
+  }
+}
+
+.headerAuthText {
+  color: $text-gray;
+
+  @media (max-width: $breakpoint-xs) {
+    display: none;
+  }
+}
+
+.headerAuthLink {
+  color: $primary-color;
+  font-weight: $font-weight-medium;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
+

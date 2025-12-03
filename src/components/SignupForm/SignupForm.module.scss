@@ -1,0 +1,350 @@
+@use '@/styles/variables' as *;
+
+.signupForm {
+  width: 100%;
+}
+
+// Google Button
+.googleBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: $border-radius-md;
+  border: 1px solid $border-color;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: $text-light;
+    box-shadow: $shadow-sm;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Divider
+.divider {
+  display: flex;
+  align-items: center;
+  margin: $spacing-lg 0;
+
+  span {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-dark;
+    padding: 0 $spacing-md;
+  }
+}
+
+// Form Row (for side-by-side fields)
+.formRow {
+  display: flex;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-xs) {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .formGroup {
+    flex: 1;
+  }
+}
+
+// Form Group
+.formGroup {
+  margin-bottom: $spacing-md;
+}
+
+// Form Label
+.formLabel {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-dark;
+  margin-bottom: $spacing-sm;
+}
+
+// Form Input
+.formInput {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  color: $text-dark;
+  background-color: $background-light;
+  border: 1px solid transparent;
+  border-radius: $border-radius-md;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+
+  &.error {
+    border-color: $error-color;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($error-color, 0.1);
+    }
+  }
+}
+
+// Mobile Input Wrapper
+.mobileInputWrapper {
+  display: flex;
+  align-items: stretch;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  background-color: $background-light;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus-within {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+}
+
+.countryCode {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0 $spacing-md;
+  background-color: $white;
+  border-right: 1px solid $border-color;
+  cursor: pointer;
+
+  span {
+    font-size: $font-size-sm;
+    color: $text-dark;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.mobileInput {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+
+  &:focus {
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+// Password Input Wrapper
+.passwordInputWrapper {
+  position: relative;
+
+  .formInput {
+    padding-right: 48px;
+  }
+}
+
+.passwordToggle {
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// Form Error
+.formError {
+  display: block;
+  font-size: $font-size-xs;
+  color: $error-color;
+  margin-top: $spacing-xs;
+}
+
+// Form Agreement
+.formAgreement {
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-lg;
+}
+
+.agreementTitle {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-dark;
+  margin-bottom: $spacing-sm;
+}
+
+.checkboxGroup {
+  display: flex;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-xs) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .checkboxCustom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid $border-color;
+    border-radius: $border-radius-sm;
+    position: relative;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 5px;
+      top: 1px;
+      width: 4px;
+      height: 9px;
+      border: solid $white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  input[type="checkbox"]:checked + .checkboxCustom {
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  input[type="checkbox"]:focus + .checkboxCustom {
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+  }
+
+  .checkboxText {
+    font-size: $font-size-sm;
+    color: $text-dark;
+  }
+}
+
+// Submit Status
+.submitStatus {
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-md;
+  text-align: center;
+
+  &.success {
+    background-color: rgba($success-color, 0.1);
+    color: $success-color;
+    border: 1px solid rgba($success-color, 0.3);
+  }
+
+  &.error {
+    background-color: rgba($error-color, 0.1);
+    color: $error-color;
+    border: 1px solid rgba($error-color, 0.3);
+  }
+}
+
+// Submit Button
+.submitBtn {
+  width: auto;
+  padding: $spacing-md $spacing-xxl;
+  background-color: $primary-color;
+  color: $white;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border: none;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+  }
+}
+
+// Loading Spinner
+.loadingSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba($white, 0.3);
+  border-top-color: $white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Date input custom styling
+.formInput[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
