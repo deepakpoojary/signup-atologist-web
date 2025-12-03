@@ -6,15 +6,16 @@
 
 // Google Button
 .googleBtn {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 41px;
   border-radius: $border-radius-md;
-  border: 1px solid $border-color;
+  // border: 1px solid $border-color;
   background-color: $white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   cursor: pointer;
+  margin-bottom: $spacing-md;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
@@ -25,19 +26,28 @@
   &:active {
     transform: scale(0.98);
   }
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-sm;
+  }
 }
 
 // Divider
 .divider {
-  display: flex;
-  align-items: center;
-  margin: $spacing-lg 0;
-
-  span {
-    font-size: $font-size-sm;
-    font-weight: $font-weight-medium;
+  // display: flex;
+  // align-items: center;
+  
+  // span {
+    // margin: 0 0;
+    display: inline-block; 
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
     color: $text-dark;
-    padding: 0 $spacing-md;
+    margin-bottom: $spacing-lg;
+  // }
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-sm;
   }
 }
 
@@ -58,16 +68,16 @@
 
 // Form Group
 .formGroup {
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-sm;
 }
 
 // Form Label
 .formLabel {
   display: block;
   font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  color: $text-dark;
-  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-regular;
+  color: #000;
+  margin-bottom: $spacing-sm;//8px 
 }
 
 // Form Input
@@ -79,7 +89,7 @@
   color: $text-dark;
   background-color: $background-light;
   border: 1px solid transparent;
-  border-radius: $border-radius-md;
+  // border-radius: $border-radius-md;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
@@ -182,8 +192,8 @@
 
 // Form Agreement
 .formAgreement {
-  margin-top: $spacing-lg;
-  margin-bottom: $spacing-lg;
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-sm;
 }
 
 .agreementTitle {
@@ -287,9 +297,9 @@
   background-color: $primary-color;
   color: $white;
   font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-regular;
   border: none;
-  border-radius: $border-radius-md;
+  // border-radius: $border-radius-md;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
   display: flex;

@@ -2,7 +2,7 @@
 
 .header {
   width: 100%;
-  padding: $spacing-md $spacing-lg;
+  padding: 0 $spacing-lg;
   background-color: $white;
   // border-bottom: 1px solid $border-color;
 
@@ -46,7 +46,10 @@
 
 .headerAuthText {
   color: $text-gray;
+  // font-size: 16px;
+  font-size: $font-size-base;
 
+  // font-size: smaller;
   @media (max-width: $breakpoint-xs) {
     display: none;
   }
@@ -54,7 +57,9 @@
 
 .headerAuthLink {
   color: $primary-color;
-  font-weight: $font-weight-medium;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+
   transition: color 0.2s ease;
 
   &:hover {
