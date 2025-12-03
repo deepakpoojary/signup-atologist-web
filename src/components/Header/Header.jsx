@@ -1,19 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.scss";
+import { CompanyLogo } from "../svgs";
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <Link href="/" className={styles.headerLogo}>
-          <Image
-            src="/images/logo.svg"
-            alt="Atologist Infotech"
-            width={160}
-            height={40}
-            priority
-          />
+          <CompanyLogo />
         </Link>
         <div className={styles.headerAuth}>
           <span className={styles.headerAuthText}>
